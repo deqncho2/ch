@@ -4,6 +4,7 @@ wrapper functions for tensorflow layers
 import tensorflow as tf
 
 def conv_layer(bottom, weight, bias=None, s=1, padding='SAME', relu=True, group=1):
+    print('whatf')
     if group==1:
         conv = tf.nn.conv2d(bottom, weight, [1, s, s, 1], padding=padding)
     else:

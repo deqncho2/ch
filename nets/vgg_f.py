@@ -7,6 +7,7 @@ keep_prob=1.0
 net = np.load('/content/gdrive/My Drive/weights/vgg_f.npy').item()
 weights = {}
 biases = {}
+print('here')
 for name in net.keys():
     weights[name] = tf.Variable(tf.constant(net[name][0]), dtype='float32' ,name=name+"_weight", trainable=False)
     biases[name] = tf.Variable(tf.constant(net[name][1]), dtype='float32' ,name=name+"_bias", trainable=False)
