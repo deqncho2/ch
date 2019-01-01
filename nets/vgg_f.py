@@ -1,5 +1,5 @@
 import tensorflow as tf
-from misc.layers import *
+from ch.misc.layers import *
 import numpy as np
 
 keep_prob=1.0
