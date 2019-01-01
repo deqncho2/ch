@@ -72,8 +72,8 @@ def choose_net(network):
 
 
 def attack_batch(model, in_im, net_name, attack_name, im_list, gt_labels, sample_size, batch_size):
-    logging.basicConfig(filename='Logs/'+net_name+"_"+attack_name+'.log', level=logging.INFO,
-    format='%(asctime)s:%(levelname)s:%(message)s')
+    # logging.basicConfig(filename='Logs/'+net_name+"_"+attack_name+'.log', level=logging.INFO,
+    # format='%(asctime)s:%(levelname)s:%(message)s')
     config = tf.ConfigProto(device_count = {'GPU': 2})
     imgs = open(im_list).readlines()  # [::10]
     gt_labels = open(gt_labels).readlines()  # [::10]
@@ -125,16 +125,24 @@ def attack_batch(model, in_im, net_name, attack_name, im_list, gt_labels, sample
             
 
             if i != 0 and i % 2 == 0:
-                logging.info("batch: {} ==================================================================".format(i))
-                logging.info("fooling rate {}".format((fool_rate)/float((i+1)*batch_size)*100))
+                #logging.info("batch: {} ==================================================================".format(i))
+                #logging.info("fooling rate {}".format((fool_rate)/float((i+1)*batch_size)*100))
+                print("batch: {} ==================================================================".format(i))
+                print("fooling rate {}".format((fool_rate) / float((i + 1) * batch_size) * 100))
             
 
-    logging.info("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")           
-    logging.info('Real Top-1 Accuracy = {}'.format(
+    # logging.info("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    # logging.info('Real Top-1 Accuracy = {}'.format(
+    # top_1_real/float(sample_size)*100))
+    # logging.info('Top-1 Accuracy = {}'.format((top_1/float(sample_size)*100)))
+    # logging.info('Top-1 Fooling Rate = {}'.format(fool_rate/float(sample_size)*100))
+    # logging.info("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print('Real Top-1 Accuracy = {}'.format(
     top_1_real/float(sample_size)*100))
-    logging.info('Top-1 Accuracy = {}'.format((top_1/float(sample_size)*100)))
-    logging.info('Top-1 Fooling Rate = {}'.format(fool_rate/float(sample_size)*100))
-    logging.info("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++") 
+    print('Top-1 Accuracy = {}'.format((top_1/float(sample_size)*100)))
+    print('Top-1 Fooling Rate = {}'.format(fool_rate/float(sample_size)*100))
+    print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
 def main():
     parser = argparse.ArgumentParser()
