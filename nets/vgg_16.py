@@ -4,7 +4,7 @@ import numpy as np
 
 keep_prob=1.0
  #weigths and biases for tensorflow
-net = np.load('weights/vgg16.npy').item()
+net = np.load('/content/gdrive/My Drive/weights/vgg16.npy').item()
 weights = {}
 biases = {}
 for name in net.keys():

@@ -3,7 +3,7 @@ from ch.misc.layers import *
 import numpy as np
 import h5py
 
-net = h5py.File('weights/inception_v3_weights_tf_dim_ordering_tf_kernels.h5','r') 
+net = h5py.File('/content/gdrive/My Drive/weights/inception_v3_weights_tf_dim_ordering_tf_kernels.h5','r')
 weights = {}
 for name in net.keys():
     if 'conv' in name:

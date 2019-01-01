@@ -3,7 +3,7 @@ from ch.misc.layers import *
 import numpy as np
 
 #weigths and biases for tensorflow
-net = np.load('weights/googlenet.npy').item()
+net = np.load('/content/gdrive/My Drive/weights/googlenet.npy').item()
 weights = {}
 biases = {}
 for name in net.keys():
